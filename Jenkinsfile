@@ -5,7 +5,7 @@ pipeline{
     } 
 
     tools{
-        nodejs "${NODE_VERSIO}"
+        nodejs "${NODE_VERSION}"
     }
 
     stages{
