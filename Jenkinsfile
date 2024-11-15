@@ -11,7 +11,7 @@ pipeline{
     stages{
         stage('Checkout'){
             steps{
-                Checkout scm 
+                git branch: 'main', url: 'https://github.com/IvoPetrovv/CICD_Exercise_Repo'
             }
         }
 
@@ -19,10 +19,10 @@ pipeline{
             steps{
                 script{
                     if(isUnix()){
-                       sh 'npm install'     
+                       bat 'npm install'     
                     }
                     else{
-                        sh 'npm install'  
+                        bat 'npm install'  
                     }
                 }
             }
@@ -31,9 +31,9 @@ pipeline{
         stage('Start aplication and run test'){
             steps{
                 script{
-                   sh 'npm start &'
-                   sh 'wait-on http://localhost:8090'
-                   sh 'npm test' 
+                   bat 'npm start &'
+                   bat 'wait-on http://localhost:8090'
+                   bat 'npm test' 
                 }
             }
         }
